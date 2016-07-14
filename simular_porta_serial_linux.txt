@@ -1,0 +1,28 @@
+1 - sudo apt-get install socat
+
+2 - socat -d -d pty,raw,echo=0, pty,raw,echo=0
+
+2014/02/05 01:04:32 socat[7411] N PTY is /dev/pts/2
+2014/02/05 01:04:32 socat[7411] N PTY is /dev/pts/3
+2014/02/05 01:04:32 socat[7411] N starting data transfer loop with FDs [3,3] and [5,5]
+
+3 - [CTRL]+[C]
+
+4 - sudo ln -s /dev/pts/2 /dev/ttyUSB02
+    sudo ln -s /dev/pts/3 /dev/ttyUSB03
+
+5 - socat -d -d pty,raw,echo=0 pty,raw,echo=0
+
+
+Testing the ports
+
+New Terminal
+1 - sudo cat /dev/pts/2
+
+New Terminal
+2 - sudo echo "Hello World" > /dev/pts/3
+
+
+http://www.xappsoftware.com/wordpress/2013/10/07/using-virtual-serial-ports-on-linux-ubuntu/
+
+http://stackoverflow.com/questions/18669379/serial-port-identification-with-java-on-ubuntu
